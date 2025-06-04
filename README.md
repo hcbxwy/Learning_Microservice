@@ -1,5 +1,5 @@
-# Learning_Microservice
-微服务学习，本项目旨在搭建一套微服务架构的在线教育SaaS平台。技术栈会尽量选用最新稳定版。
+# Learnify
+本项目旨在搭建一套微服务架构的在线教育SaaS平台。技术栈会尽量选用最新稳定版。
 ## 技术栈
 - Java 21
 - Spring Cloud Alibaba 2023.0.3.2
