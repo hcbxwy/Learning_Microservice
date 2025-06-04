@@ -1,0 +1,36 @@
+version: '3.8'
+name: Learnify
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    env_file:
+      - env/mysql.env
+    ports:
+      - "3306:3306"
+    volumes:
+      - d:\data\mysql:/var/lib/mysql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_general_ci
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+    restart: always
+  nacos:
+    image: nacos/nacos-server:latest
+    container_name: nacos
+    env_file:
+      - env/nacos-mysql.env
+    volumes:
+      - ./logs/nacos:/home/nacos/logs
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "50020:8080"
+      - "8848:8848"
+      - "9848:9848"
+    restart: always

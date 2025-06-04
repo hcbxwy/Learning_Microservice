@@ -9,20 +9,26 @@
 - Sentinel 1.8.6
 - Seata 2.0.0
 - RocketMQ 5.1.4
+- MySQL 8.0.42
 ## 项目代码结构
 ```
 Learning_Microservice       # 项目根目录
-|-- auth-service            # 认证服务        
-|-- question-service        # 题库服务
-|-- plan-service            # 计划服务
-|-- exam-service            # 考试服务
-|-- evaluation-service      # 考评服务
-|-- certificate-service     # 证书服务
-|-- order-service           # 订单服务
-|-- ops-service             # 运营服务
-|-- gateway-service         # 网关服务
+|-- auth-service            # 认证服务50100        
+|-- question-service        # 题库服务50200
+|-- plan-service            # 计划服务50300
+|-- exam-service            # 考试服务50400
+|-- evaluation-service      # 考评服务50500
+|-- certificate-service     # 证书服务50600
+|-- order-service           # 订单服务50700
+|-- ops-service             # 运营服务50800
+|-- gateway-service         # 网关服务50010
 ```
+## 搭建开发环境
+1. 启动容器：docker-compose up -d
+2. 使用DBeaver连接MySQL数据库，并在nacos数据库执行数据库脚本 nacos-mysql.sql
+3. 访问Nacos：http://localhost:50020，账号密码：nacos/nacos
 
+使用DBeaver连接时可能会报“Public Key Retrieval is not allowed”，解决办法是在url连接上加：?allowPublicKeyRetrieval=true&useSSL=false
 ## 功能清单
 ### 后台管理端
 ### PC考生端
